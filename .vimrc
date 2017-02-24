@@ -13,6 +13,7 @@ set autoindent
 
 syntax on
 filetype plugin indent on
+colorscheme diokai
 
 if !has('gui_running')
 	set t_Co=256
