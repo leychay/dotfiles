@@ -13,7 +13,7 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 
-# Custom Aliases
+# My Custom Aliases
 alias cdf="cd ~/projects/"
 alias cdr="cd ~/"
 alias cdvs="cd ~/projects/vagrant/ && vagrant status"
@@ -24,6 +24,9 @@ alias puf="phpunit --stop-on-failure --test-suffix ".php" --colors $@"
 alias phpcs="phpcs --standard=PSR2 $@"
 alias c="clear"
 alias gst="git status"
+alias vimbundle="cd ~/.vim/bundle/"
+alias ..="cd .."
+alias ...="cd ../.."
 
 # Frog Specific Aliases
 source "$HOME/dotfiles/.frogaliases"
