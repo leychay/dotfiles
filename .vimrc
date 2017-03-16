@@ -11,6 +11,16 @@ set laststatus=2
 set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
 set autoindent
 
+" Remove trailing whitespaces for PHP Files
+autocmd BufWritePre *.php %s/\s\+$//e
+
+" set vim to chdir for each file
+if exists('+autochdir')
+    set autochdir
+else
+    autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
+endif
+
 syntax on
 filetype plugin indent on
 colorscheme diokai
@@ -92,6 +102,8 @@ let g:syntastic_check_on_wq = 1
 
 let g:syntastic_quiet_messages = { "type": "style" }
 
+let g:gitgutter_max_signs = 600
+
 " PHP Code Sniffer
 let g:syntastic_php_phpcs_args = '--standard=PSR2 -p'
 
@@ -112,3 +124,6 @@ set title
 
 " Fuzzy Finder for VIM
 set rtp+=~/.fzf
+
+" NERDTree
+map <C-n> :NERDTreeToggle<CR>
