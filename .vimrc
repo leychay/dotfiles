@@ -3,26 +3,22 @@ scriptencoding utf-8
 
 execute pathogen#infect()
 
+call pathogen#helptags()
 set number
 " set nocursorline
 set hlsearch
 set laststatus=2
+set noswapfile
+set noshowmode
+set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
+set list
 
-set tabstop=4 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set autoindent
-
-" Remove trailing whitespaces for PHP Files
-autocmd BufWritePre *.php %s/\s\+$//e
-
-" set vim to chdir for each file
-if exists('+autochdir')
-    set autochdir
-else
-    autocmd BufEnter * silent! lcd %:p:h:gs/ /\\ /
-endif
 
 syntax on
 filetype plugin indent on
+set background=dark
 colorscheme diokai
 
 if !has('gui_running')
@@ -95,24 +91,24 @@ set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+let g:syntastic_always_populate_loc_list = 0
+let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_wq = 0
 
 let g:syntastic_quiet_messages = { "type": "style" }
 
 let g:gitgutter_max_signs = 600
 
 " PHP Code Sniffer
-let g:syntastic_php_phpcs_args = '--standard=PSR2 -p'
+" let g:syntastic_php_phpcs_args = '--standard=PSR2 -p'
 
 " Tell Syntastic to use jshint *and* jscs
-" let g:syntastic_javascript_checkers = ["jshint", "jscs"] 
+let g:syntastic_javascript_checkers = ["eslint"]
 " Ensure jscs outputs all errors instead of stopping after a certain number
 let g:syntastic_javascript_jscs_args = '--max-errors -1' 
 " Tell Syntastic to aggregate errors from both of the checkers
-let g:syntastic_aggregate_errors = 1
+" let g:syntastic_aggregate_errors = 1
 
 " Tagbar Configuration
 let g:tagbar_usearrows = 1
@@ -127,3 +123,9 @@ set rtp+=~/.fzf
 
 " NERDTree
 map <C-n> :NERDTreeToggle<CR>
+
+" Open ctags in tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>"
+
+" vim_markdown_preview
+let vim_markdown_preview_github=1
