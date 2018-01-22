@@ -41,7 +41,7 @@ fi
 
 # Install FiraCode Font Ligatures (docs: https://github.com/tonsky/FiraCode/wiki)
 # create fonts dir
-mkdir -p /.local/share/fonts
+mkdir -p ~/.local/share/fonts
 #
 # run installation
 for type in Bold Light Medium Regular Retina; do
@@ -58,7 +58,9 @@ fc-cache -f
 
 
 # Create Symlink for the dotfiles to home dir
+mv ~/.bashrc ~/.bashrc.old
 ln -s ~/dotfiles/.bashrc ~/.bashrc
 ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
 ln -s ~/dotfiles/.bash_prompt ~/.bash_prompt
+ln -s ~/dotfiles/.vimrc ~/.vimrc
