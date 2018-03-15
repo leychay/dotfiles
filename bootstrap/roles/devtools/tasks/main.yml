@@ -1,0 +1,29 @@
+---
+- name: Ensure PHPBrew dependencies are installed.
+  apt:
+    name: "{{ item }}"
+    state: installed
+    force_apt_get: yes
+    install_recommends: yes
+  with_items: "{{ phpbrew_dependencies }}"
+
+# - name: Install PHP Brew
+  # https://github.com/phpbrew/phpbrew
+  #
+# - name: Install Composer
+  # https://getcomposer.org/download/
+
+# - name: Install Valet Linux
+  # https://cpriego.github.io/valet-linux/
+
+# - name: Install MySQL-Server
+  #
+  #
+
+# - name: Include Dev Tools Variables
+#   include_vars: "{{ ansible_os_family }}.yml"
+
+# - name: Define phpbrew_dep.
+#   set_fact:
+#     phpbrew_dep: "{{ __phpbrew_dependencies | list }}"
+#   when: phpbrew_dep is not defined
