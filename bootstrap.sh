@@ -2,7 +2,6 @@
 
 #Requirement:
 # Install git beforehand so that we can checkout the dotfiles from repo
-# To be run as root
 
 # Install Vim-Pathogen
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
