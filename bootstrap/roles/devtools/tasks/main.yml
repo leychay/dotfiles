@@ -3,7 +3,6 @@
   apt:
     name: "{{ item }}"
     state: installed
-    force_apt_get: yes
     install_recommends: yes
   with_items: "{{ phpbrew_dependencies }}"
 
