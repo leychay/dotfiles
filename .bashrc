@@ -59,4 +59,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# PHP Brew setting
+source "$HOME/.phpbrew/bashrc"
+#export PHPBREW_SET_PROMPT=1
+export PHPBREW_RC_ENABLE=1
+
 source "$HOME/.bash_profile"
+
+#icons-in-terminal
+source ~/.local/share/icons-in-terminal/icons_bash.sh
