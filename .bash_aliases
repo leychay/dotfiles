@@ -28,7 +28,3 @@ alias wificonnect="nmcli --ask -p device wifi connect $@"
 alias wifilist="nmcli device wifi list"
 alias revlist="git rev-list -n 1 $@"
 alias icons="cd ~/_xproj/_utils/icons-in-terminal/ && ./print_icons.sh --names"
-
-# Private Aliases
-source "$HOME/dotfiles/.frogaliases"
-source "$HOME/dotfiles/.privaliases"
