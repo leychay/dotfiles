@@ -1,0 +1,38 @@
+---
+# https://github.com/phpbrew/phpbrew
+#
+- name: Check if PHPBrew is installed
+  stat: "path={{ phpbrew_path }}"
+  register: phpbrew_bin
+
+- name: Ensure PHPBrew dependencies are installed
+  apt:
+    name: "{{ item }}"
+    state: installed
+    install_recommends: yes
+  with_items: "{{ phpbrew_dependencies }}"
+
+- name: Download PHPBrew installer
+  get_url:
+    url: https://github.com/phpbrew/phpbrew/raw/master/phpbrew
+    dest: /tmp/phpbrew
+    mode: 0755
+  when: not phpbrew_bin.stat.exists
+
+- name: Move PHPBrew into globally-accessible location.
+  shell: >
+    mv /tmp/phpbrew {{ phpbrew_path  }}
+    creates={{ composer_path  }}
+  when: not phpbrew_bin.stat.exists
+
+# Now that PHPBrew has been installed, time to configure it
+
+- name: Initialize PHPBrew
+  shell: >
+    {{ phpbrew_bin }} init
+  when: not phpbrew_bin.stat.exists
+
+- name: Adding `source` entry in .bashrc
+  shell: >
+    echo "[[ -e ~/.phpbrew/bashrc  ]] && source ~/.phpbrew/bashrc" >> ~/.bashrc
+  when: not phpbrew_bin.stat.exists

@@ -1,16 +1,26 @@
 ---
-- name: Ensure PHPBrew dependencies are installed.
-  apt:
-    name: "{{ item }}"
-    state: installed
-    install_recommends: yes
-  with_items: "{{ phpbrew_dependencies }}"
+- name: Set php_executable variable
+  set_fact:
+    php_executable: php
+    when: php_executable is not defined
 
-# - name: Install PHP Brew
-  # https://github.com/phpbrew/phpbrew
-  #
-# - name: Install Composer
-  # https://getcomposer.org/download/
+- include: phpbrew.yml
+  when: auto_install_phpbrew
+
+- include: composer.yml
+  when: auto_install_composer
+
+# - include: fzf.yml
+#   when: auto_install_fzf
+
+
+
+
+
+
+
+
+
 
 # - name: Install Valet Linux
   # https://cpriego.github.io/valet-linux/
