@@ -6,6 +6,8 @@
   register: phpbrew_bin
 
 - name: Ensure PHPBrew dependencies are installed
+  become: yes
+  become_user: root
   apt:
     name: "{{ item }}"
     state: installed
@@ -20,19 +22,10 @@
   when: not phpbrew_bin.stat.exists
 
 - name: Move PHPBrew into globally-accessible location.
+  become: yes
+  become_user: root
   shell: >
     mv /tmp/phpbrew {{ phpbrew_path  }}
     creates={{ phpbrew_path  }}
   when: not phpbrew_bin.stat.exists
 
-# Now that PHPBrew has been installed, time to configure it
-
-- name: Initialize PHPBrew
-  shell: >
-    {{ phpbrew_bin }} init
-  when: not phpbrew_bin.stat.exists
-
-- name: Adding `source` entry in .bashrc
-  shell: >
-    echo "[[ -e ~/.phpbrew/bashrc  ]] && source ~/.phpbrew/bashrc" >> ~/.bashrc
-  when: not phpbrew_bin.stat.exists

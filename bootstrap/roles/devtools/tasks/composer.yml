@@ -24,6 +24,8 @@
   when: not composer_bin.stat.exists
 
 - name: Move Composer into globally-accessible location.
+  become: yes
+  become_user: root
   shell: >
     mv /tmp/composer.phar {{ composer_path }}
     creates={{ composer_path  }}
@@ -42,17 +44,6 @@
     owner: "{{ composer_home_owner }}"
     group: "{{ composer_home_group }}"
     state: directory
-
-- name: Install configured globally-required packages.
-  command: >
-    {{ composer_path }} global require {{ item.name }} --no-progress
-    creates={{ composer_home_path }}/vendor/{{ item.name }}
-  environment:
-    COMPOSER_HOME: "{{ composer_home_path }}"
-  become: yes
-  become_user: "{{ composer_home_owner }}"
-  register: composer_global_require_result
-  with_items: "{{ composer_global_packages }}"
 
 - name: Add composer_home_path bin directory to global $PATH.
   template:
