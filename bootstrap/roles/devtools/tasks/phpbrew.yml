@@ -22,7 +22,7 @@
 - name: Move PHPBrew into globally-accessible location.
   shell: >
     mv /tmp/phpbrew {{ phpbrew_path  }}
-    creates={{ composer_path  }}
+    creates={{ phpbrew_path  }}
   when: not phpbrew_bin.stat.exists
 
 # Now that PHPBrew has been installed, time to configure it
