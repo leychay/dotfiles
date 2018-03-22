@@ -1,4 +1,16 @@
 ---
+############################
+#     COMMON VARIABLES     #
+############################
+common_directories:
+  - utils
+  - projects
+
+utils_path: ~/utils
+
+############################
+#    PHPBREW VARIABLES     #
+############################
 phpbrew_path: /usr/local/bin/phpbrew
 phpbrew_dependencies:
   - php7.0
@@ -27,7 +39,6 @@ phpbrew_dependencies:
 ############################
 #    COMPOSER VARIABLES    #
 ############################
-
 composer_path: /usr/local/bin/composer
 composer_home_path: '~/.composer'
 composer_home_owner: "{{ owner }}"
@@ -35,5 +46,13 @@ composer_home_group: "{{ group }}"
 
 composer_keep_updated: true
 composer_global_packages:
-  - { name: laravel/installer, release: "@stable" }
-  - { name: cpriego/valet-linux, release: "@stable" }
+  - { name: laravel/installer, release: "@stable" } #Yeah, Laravel FTW
+  - { name: cpriego/valet-linux, release: "@stable" } # Valet-Linux, no more Apache setup. NGINX/DNSMASQ FTW
+
+
+############################
+#  FUZZY FINDER VARIABLES  #
+############################
+fzf_path: /usr/local/bin/fzf
+fzf_install_path: "{{ utils_path }}/fzf"
+
