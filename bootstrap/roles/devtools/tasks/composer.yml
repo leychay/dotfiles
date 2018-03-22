@@ -1,6 +1,11 @@
 ---
 # https://getcomposer.org/download/
 #
+- name: Set php_executable variable
+  set_fact:
+    php_executable: php
+    when: php_executable is not defined
+
 - name: Check if Composer is installed.
   stat: "path={{ composer_path }}"
   register: composer_bin
