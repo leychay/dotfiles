@@ -1,8 +1,9 @@
 ---
-- name: Set php_executable variable
-  set_fact:
-    php_executable: php
-    when: php_executable is not defined
+- name: Create common directories in ~/
+  file:
+    path: "~/{{ item }}"
+    state: directory
+  with_items: "{{ common_directories }}"
 
 - include: phpbrew.yml
   when: auto_install_phpbrew
@@ -10,8 +11,8 @@
 - include: composer.yml
   when: auto_install_composer
 
-# - include: fzf.yml
-#   when: auto_install_fzf
+- include: fzf.yml
+  when: auto_install_fzf
 
 
 
