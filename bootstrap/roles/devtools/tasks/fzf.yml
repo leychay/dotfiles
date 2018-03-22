@@ -1,0 +1,23 @@
+---
+# https://github.com/junegunn/fzf
+- name: Check if Fuzzy Finder (FZF) is installed
+  stat: "path={{ fzf_path }}"
+  register: fzf_bin
+
+- name: Download FZF installer
+  git:
+    repo: 'https://github.com/junegunn/fzf.git'
+    dest: "{{ fzf_install_path }}"
+    depth: 1
+  when: not fzf_bin.stat.exists
+
+- name: Install FZF
+  shell: >
+    {{ fzf_install_path }}/install
+  when: not fzf_bin.stat.exists
+
+- name: Move FZF into globally-accessible location.
+  shell: >
+    mv {{ fzf_install_path }}/fzf {{ fzf_path  }}
+    creates={{ fzf_path }}
+  when: not fzf_bin.stat.exists
