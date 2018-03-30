@@ -1,0 +1,39 @@
+---
+# https://cpriego.github.io/valet-linux/
+#
+- name: Set valet_executable variable
+  set_fact:
+    valet_executable: valet
+    when: valet_executable is not defined
+
+- name: Check if Valet is installed.
+  stat: "path={{ valet_path }}"
+  register: valet_bin
+
+- name: Requiring Valet-Linux via Composer
+  composer:
+    command: require
+    global_command: yes
+    arguments: cpriego/valet-linux
+  when: not valet_bin.stat.exists
+
+- name: Link Valet to a globally-accessible location
+  become: true
+  become_user: root
+  file:
+    src: "{{ valet_home_path }}/valet"
+    dest: "{{ valet_path }}"
+    state: link
+  when: not valet_bin.stat.exists
+
+- name: Install Valet
+  shell: >
+    {{ valet_bin }} install
+
+- name: Renaming Valet default domain to something flashy
+  shell: >
+    {{ valet_bin }} domain flashy
+
+- name: Park the project directory
+  shell: >
+    cd {{ projects_path }} && {{ valet_bin }} park

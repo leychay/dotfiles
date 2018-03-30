@@ -7,3 +7,4 @@ group: leychay
 auto_install_composer: true
 auto_install_phpbrew: true
 auto_install_fzf: true
+auto_install_valet: true

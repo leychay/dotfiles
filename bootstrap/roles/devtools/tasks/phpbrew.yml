@@ -6,7 +6,7 @@
   register: phpbrew_bin
 
 - name: Ensure PHPBrew dependencies are installed
-  become: yes
+  become: true
   become_user: root
   apt:
     name: "{{ item }}"
@@ -22,7 +22,7 @@
   when: not phpbrew_bin.stat.exists
 
 - name: Move PHPBrew into globally-accessible location.
-  become: yes
+  become: true
   become_user: root
   shell: >
     mv /tmp/phpbrew {{ phpbrew_path  }}

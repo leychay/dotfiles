@@ -24,7 +24,7 @@
   when: not composer_bin.stat.exists
 
 - name: Move Composer into globally-accessible location.
-  become: yes
+  become: true
   become_user: root
   shell: >
     mv /tmp/composer.phar {{ composer_path }}
@@ -46,6 +46,8 @@
     state: directory
 
 - name: Add composer_home_path bin directory to global $PATH.
+  become: true
+  become_user: root
   template:
     src: composer.sh.j2
     dest: /etc/profile.d/composer.sh

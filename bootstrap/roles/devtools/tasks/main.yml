@@ -14,26 +14,5 @@
 - include: fzf.yml
   when: auto_install_fzf
 
-
-
-
-
-
-
-
-
-
-# - name: Install Valet Linux
-  # https://cpriego.github.io/valet-linux/
-
-# - name: Install MySQL-Server
-  #
-  #
-
-# - name: Include Dev Tools Variables
-#   include_vars: "{{ ansible_os_family }}.yml"
-
-# - name: Define phpbrew_dep.
-#   set_fact:
-#     phpbrew_dep: "{{ __phpbrew_dependencies | list }}"
-#   when: phpbrew_dep is not defined
+- include: valet-linux.yml
+  when: auto_install_valet
