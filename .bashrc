@@ -61,10 +61,13 @@ fi
 
 # PHP Brew setting
 source "$HOME/.phpbrew/bashrc"
-#export PHPBREW_SET_PROMPT=1
-export PHPBREW_RC_ENABLE=1
 
 source "$HOME/.bash_profile"
 
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+
 #icons-in-terminal
-source ~/.local/share/icons-in-terminal/icons_bash.sh
+# source ~/.local/share/icons-in-terminal/icons_bash.sh
