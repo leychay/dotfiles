@@ -1,0 +1,18 @@
+---
+- name: Create common directories in ~/
+  file:
+    path: "~/{{ item }}"
+    state: directory
+  with_items: "{{ common_directories }}"
+
+- include: phpbrew.yml
+  when: auto_install_phpbrew
+
+- include: composer.yml
+  when: auto_install_composer
+
+- include: fzf.yml
+  when: auto_install_fzf
+
+- include: valet-linux.yml
+  when: auto_install_valet

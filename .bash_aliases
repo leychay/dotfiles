@@ -15,12 +15,12 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # My Custom Aliases
 alias cdf="cd ~/projects/"
-alias cdvg="cd ~/projects/vagrant/"
+# alias cdvg="cd ~/projects/vagrant/"
 alias cdd="cd ~/dotfiles/"
 alias pu="phpunit --test-suffix ".php" --colors $@"
 alias puf="phpunit --stop-on-failure --test-suffix ".php" --colors $@"
 alias phpcs="phpcs --standard=PSR2 $@"
-alias gst="git status"
+alias g="git"
 alias vimbundle="cd ~/.vim/bundle/"
 alias ..="cd .."
 alias ...="cd ../.."
@@ -28,7 +28,7 @@ alias wificonnect="nmcli --ask -p device wifi connect $@"
 alias wifilist="nmcli device wifi list"
 alias revlist="git rev-list -n 1 $@"
 alias icons="cd ~/_xproj/_utils/icons-in-terminal/ && ./print_icons.sh --names"
-
-# Private Aliases
-source "$HOME/dotfiles/.frogaliases"
-source "$HOME/dotfiles/.privaliases"
+alias adminer="cd ~/projects/adminer && php -S adminer.me:31337"
+alias artisan="php artisan"
+alias afk="i3lock -i ~/Pictures/vim_bashrc_full.png  -c 000000 -p default -t"
+alias nsmisync="cd ~/ProjectNotes/Appliance_Misc_Data/nsmi_log"

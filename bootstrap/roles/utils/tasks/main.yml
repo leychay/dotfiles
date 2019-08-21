@@ -1,0 +1,12 @@
+---
+- name: Create my typical directories
+  # ~/projects/ ~/_utils ~/_xproj ~/ProjectNotes
+
+- name: Install Solarized Theme
+
+- name: Install FiraCode Ligatures
+
+- name: Install Fuzzy Finder
+
+- name: Install icons-in-terminal
+

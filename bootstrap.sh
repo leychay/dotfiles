@@ -15,29 +15,6 @@ for i in $(cat vim.plugins); do
   cd -
 done
 
-# Bootstrap typical directories
-# mkdir -p ~/projects ~/_utils
-mkdir -p ~/_utils
-
-# Install Solarized theme (Konsole || Gnome-Terminal)
-mkdir -p ~/_utils/gnome-solarized
-if [ "$XDG_CURRENT_DESKTOP" == "KDE" ];
-then
-  echo 'Konsole'
-  cd ~/_utils/gnome-solarized
-  git clone https://github.com/phiggins/konsole-colors-solarized.git .
-  cd -
-  echo "Read further instruction here: https://github.com/phiggins/konsole-colors-solarized"
-else
-  echo 'Gnome'
-  sudo apt-get install dconf-cli
-  cd ~/_utils/gnome-solarized
-  git clone https://github.com/Anthony25/gnome-terminal-colors-solarized.git .
-  cd -
-  echo "TODO :: Done cloning gnome-solarized theme in ~/_utils/gnome-solarized/ . Please manually install it yeah?"
-  echo "TODO :: Just run ./install.sh or set_dark.sh would do the trick"
-fi
-
 # Install FiraCode Font Ligatures (docs: https://github.com/tonsky/FiraCode/wiki)
 # create fonts dir
 mkdir -p ~/.local/share/fonts

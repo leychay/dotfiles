@@ -1,0 +1,31 @@
+---
+# https://github.com/phpbrew/phpbrew
+#
+- name: Check if PHPBrew is installed
+  stat: "path={{ phpbrew_path }}"
+  register: phpbrew_bin
+
+- name: Ensure PHPBrew dependencies are installed
+  become: true
+  become_user: root
+  apt:
+    name: "{{ item }}"
+    state: installed
+    install_recommends: yes
+  with_items: "{{ phpbrew_dependencies }}"
+
+- name: Download PHPBrew installer
+  get_url:
+    url: https://github.com/phpbrew/phpbrew/raw/master/phpbrew
+    dest: /tmp/phpbrew
+    mode: 0755
+  when: not phpbrew_bin.stat.exists
+
+- name: Move PHPBrew into globally-accessible location.
+  become: true
+  become_user: root
+  shell: >
+    mv /tmp/phpbrew {{ phpbrew_path  }}
+    creates={{ phpbrew_path  }}
+  when: not phpbrew_bin.stat.exists
+
