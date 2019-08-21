@@ -1,10 +1,10 @@
 ---
 # Set Owner and Group. Define yours here
-owner: leychay
-group: leychay
+owner: ikhwan
+group: ikhwan
 
 # Automatic Installation
 auto_install_composer: true
 auto_install_phpbrew: true
 auto_install_fzf: true
-auto_install_valet: true
+auto_install_valet: false
