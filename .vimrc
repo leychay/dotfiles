@@ -13,7 +13,7 @@ set noshowmode
 set list
 set splitright
 
-set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=4 smarttab
 set autoindent
 
 syntax on
@@ -101,6 +101,7 @@ let g:syntastic_quiet_messages = { "type": "style" }
 let g:gitgutter_max_signs = 600
 
 " PHP Code Sniffer
+let g:syntastic_php_checkers = ["php", "phpcs"]
 let g:syntastic_php_phpcs_args = '--standard=PSR2 -p'
 
 " Tell Syntastic to use eslint
@@ -110,6 +111,9 @@ let g:syntastic_eslint_exe = "$(npm bin)/eslint"
 let g:syntastic_javascript_jscs_args = '--max-errors -1'
 " Tell Syntastic to aggregate errors from both of the checkers
 " let g:syntastic_aggregate_errors = 1
+
+" Yaml Linting
+let g:syntastic_yaml_checkers = ["yamllint"]
 
 " Tagbar Configuration
 let g:tagbar_usearrows = 1
@@ -127,3 +131,6 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>"
 
 " vim_markdown_preview
 let vim_markdown_preview_github=1
+
+" ctrlP Configuration
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*     " MacOSX/Linux"

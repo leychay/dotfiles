@@ -1,12 +1,14 @@
 #! /bin/bash
 
 #export env
-export PATH="$HOME/bin:$PATH"
-export ANDROID_HOME=~/Android/Sdk
-export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
-export TERM=xterm-256color
+# export PATH="$HOME/bin:$PATH"
+# export ANDROID_HOME=~/Android/Sdk
+# export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+# export TERM=xterm-256color
 
 export PATH=~/.config/composer/vendor/bin:$PATH
+export EDITOR='vim'
+export VISUAL='vim'
 
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
