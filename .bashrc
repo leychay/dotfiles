@@ -8,6 +8,11 @@ case $- in
       *) return;;
 esac
 
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+    . /etc/bashrc
+fi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth:erasedups
@@ -31,9 +36,9 @@ shopt -s checkwinsize
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
 # set variable identifying the chroot you work in (used in the prompt below)
-if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
-    debian_chroot=$(cat /etc/debian_chroot)
-fi
+# if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+#     debian_chroot=$(cat /etc/debian_chroot)
+# fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
@@ -67,7 +72,7 @@ source "$HOME/.bash_profile"
 powerline-daemon -q
 POWERLINE_BASH_CONTINUATION=1
 POWERLINE_BASH_SELECT=1
-. /usr/local/lib/python2.7/dist-packages/powerline/bindings/bash/powerline.sh
+. /usr/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
 
 #icons-in-terminal
 # source ~/.local/share/icons-in-terminal/icons_bash.sh
