@@ -10,6 +10,11 @@ export PATH=~/.config/composer/vendor/bin:$PATH
 export EDITOR='vim'
 export VISUAL='vim'
 
+export PATH=~/.phpbrew/bin:$PATH
+export PATH=~/utils/git-imerge/:$PATH
+export PATH=~/utils/sonar-scanner/bin:$PATH
+export PATH=~/utils/flutter/bin:$PATH
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
