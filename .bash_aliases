@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Vim aliases
+alias vim="vimx -p"
+
 # Konsole default Aliases
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
@@ -32,3 +35,7 @@ alias adminer="cd ~/projects/adminer && php -S adminer.me:31337"
 alias artisan="php artisan"
 alias afk="i3lock -i ~/Pictures/vim_bashrc_full.png  -c 000000 -p default -t"
 alias nsmisync="cd ~/ProjectNotes/Appliance_Misc_Data/nsmi_log"
+alias notes="cd ~/ProjectNotes/"
+alias sshp="ssh -o PubKeyAuthentication=no $@"
+alias gmerge="git-imerge $@"
+alias rbstat='( RaD="$( git rev-parse --git-path 'rebase-apply/' )" && N=$( cat "${RaD}next" ) && L=$( cat "${RaD}last" ) && echo "${N} / ${L}" ; )'
