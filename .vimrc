@@ -12,9 +12,14 @@ set noswapfile
 set noshowmode
 set list
 set splitright
+set tabpagemax=100
 
 set tabstop=2 softtabstop=0 expandtab shiftwidth=4 smarttab
 set autoindent
+
+" Yank to register
+set clipboard=unnamedplus
+set mouse=a
 
 syntax on
 filetype plugin indent on
@@ -115,6 +120,9 @@ let g:syntastic_javascript_jscs_args = '--max-errors -1'
 " Yaml Linting
 let g:syntastic_yaml_checkers = ["yamllint"]
 
+" Python Linting
+let g:syntastic_python_checkers = ['pylint']
+
 " Tagbar Configuration
 let g:tagbar_usearrows = 1
 noremap <C-l> : TagbarToggle<CR>
@@ -134,3 +142,6 @@ let vim_markdown_preview_github=1
 
 " ctrlP Configuration
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*     " MacOSX/Linux"
+
+" Set indentation for specific filetype
+autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
