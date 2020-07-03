@@ -65,15 +65,13 @@ if ! shopt -oq posix; then
 fi
 
 # PHP Brew setting
+export PHPBREW_SET_PROMPT=1
 source "$HOME/.phpbrew/bashrc"
 
 source "$HOME/.bash_profile"
 
-powerline-daemon -q
-POWERLINE_BASH_CONTINUATION=1
-POWERLINE_BASH_SELECT=1
-. /usr/lib/python2.7/site-packages/powerline/bindings/bash/powerline.sh
-
 #icons-in-terminal
 # source ~/.local/share/icons-in-terminal/icons_bash.sh
 
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
