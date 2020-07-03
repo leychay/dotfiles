@@ -21,9 +21,11 @@ set autoindent
 set clipboard=unnamedplus
 set mouse=a
 
-syntax on
+syntax enable
 filetype plugin indent on
 set background=dark
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
 colorscheme solarized
 
 if !has('gui_running')
@@ -31,13 +33,14 @@ if !has('gui_running')
 endif
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'jellybeans',
       \ 'mode_map': { 'c': 'NORMAL' },
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'fugitive', 'filename' ] ]
       \ },
       \ 'component_function': {
       \   'modified': 'LightLineModified',
+      \   'gitbranch': 'FugitiveHead',
       \   'readonly': 'LightLineReadonly',
       \   'fugitive': 'LightLineFugitive',
       \   'filename': 'LightLineFilename',
@@ -88,7 +91,9 @@ function! LightLineFileencoding()
 endfunction
 
 function! LightLineMode()
-  return winwidth(0) > 60 ? lightline#mode() : ''
+  return expand('%:t') =~# '^__Tagbar__' ? 'Tagbar':
+        \ expand('%:t') ==# 'ControlP' ? 'CtrlP' :
+        \ winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
 
 " Syntastic settings
