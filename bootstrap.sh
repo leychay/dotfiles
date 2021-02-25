@@ -1,8 +1,11 @@
 #!/bin/bash
 
+
 #Requirement:
 # Install git beforehand so that we can checkout the dotfiles from repo
 # Installation is assuming that you're using Fedora, because I'm sticking to Fedora
+
+# Checks prerequisite for installation
 
 # Install Vim-Pathogen
 echo "Intall Vim Pathogen"
@@ -48,6 +51,7 @@ phpbrew init
 # Install PHP 7.1, and PHP 7.2 for prosperity (Using laravel standard installation)
 phpbrew install 7.1.33 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json -- --with-openssl
 phpbrew install 7.2.31 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json -- --with-openssl
+phpbrew install 7.3 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json -- --with-openssl
 
 # TODO ::  Install Fuzzy Finder
 # TODO ::  Install icons-in-terminal
