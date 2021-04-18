@@ -59,7 +59,8 @@ phpbrew init
 # Install PHP 7.1, and PHP 7.2 for prosperity (Using laravel standard installation)
 phpbrew install 7.1.33 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json +pgsql +pdo -- --with-openssl
 # phpbrew install 7.2.31 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json -- --with-openssl
-# phpbrew install 7.3 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json -- --with-openssl
+# phpbrew install 7.3 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json +pgsql +pdo -- --with-openssl
+phpbrew install 8.0 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json +pgsql +pdo -- --with-openssl
 
 # TODO ::  Install keychain?
 
