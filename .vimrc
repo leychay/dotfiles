@@ -14,7 +14,7 @@ set list
 set splitright
 set tabpagemax=100
 
-set tabstop=2 softtabstop=0 expandtab shiftwidth=4 smarttab
+set tabstop=2 softtabstop=0 expandtab shiftwidth=2 smarttab
 set autoindent
 
 " Yank to register
