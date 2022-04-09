@@ -45,9 +45,9 @@ fc-cache -f
 
 # TODO ::  Install PHP Brew for managing different version of PHP with ease (docs: https://github.com/phpbrew/phpbrew)
 # Install PHPbrew deps
-sudo yum install make gcc gcc-c++ kernel-devel
-sudo yum install php php-bz2 php-devel php-pear bzip2-devel yum-utils libmcrypt-devel libpqxx-devel libxslt-devel pcre-devel libcurl-devel libgsasl-devel openldap-devel readline-devel
-sudo yum-builddep php
+sudo yum install make gcc gcc-c++ kernel-devel -y
+sudo yum install php php-bz2 php-devel php-pear bzip2-devel yum-utils libmcrypt-devel libpqxx-devel libxslt-devel pcre-devel libcurl-devel libgsasl-devel openldap-devel readline-devel libzip libzip-devel
+sudo yum-builddep php -y
 
 echo "Check Initial PHP version"
 php -v
