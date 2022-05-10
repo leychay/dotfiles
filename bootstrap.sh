@@ -63,7 +63,12 @@ phpbrew install 7.1.33 +default +mysql +sqlite +pdo +openssl +mbstring +xml +jso
 phpbrew install 7.4 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json +pgsql +pdo -- --with-openssl
 phpbrew install 8.0 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json +pgsql +pdo -- --with-openssl
 
-# TODO ::  Install keychain?
+
+# Install composer
+echo "Installing Composer"
+./composer-installer.sh
+sudo mv composer.phar /usr/local/bin/composer
+
 
 # Install Fuzzy Finder
 echo "Installing Fuzzy Finder"
