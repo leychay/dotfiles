@@ -40,3 +40,4 @@ alias sshp="ssh -o PubKeyAuthentication=no $@"
 alias scpp="scp -o PubKeyAuthentication=no $@"
 alias gmerge="git-imerge $@"
 alias rbstat='( RaD="$( git rev-parse --git-path 'rebase-apply/' )" && N=$( cat "${RaD}next" ) && L=$( cat "${RaD}last" ) && echo "${N} / ${L}" ; )'
+

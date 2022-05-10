@@ -69,6 +69,7 @@ export PHPBREW_SET_PROMPT=1
 source "$HOME/.phpbrew/bashrc"
 
 source "$HOME/.bash_profile"
+source "$HOME/.bash_functions"
 
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
