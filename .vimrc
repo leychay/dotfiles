@@ -150,3 +150,12 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*     " MacOSX/Linux"
 
 " Set indentation for specific filetype
 autocmd FileType yaml setlocal shiftwidth=2 tabstop=2
+
+" NERDTree Config
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+set wildmenu         " Make the command-line completion better
+set wildmode=list:longest " Make the command-line completion show a list
+set ignorecase
+set smartcase
