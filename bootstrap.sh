@@ -66,11 +66,13 @@ phpbrew install 8.0 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json +
 # TODO ::  Install keychain?
 
 # Install Fuzzy Finder
+echo "Installing Fuzzy Finder"
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 
 
 # Create Symlink for the dotfiles to home dir
+echo "Symlinking all my rc files"
 mv ~/.bashrc ~/.bashrc.old
 mv ~/.bash_profile ~/.bash_profile.old
 
@@ -79,3 +81,14 @@ ln -s ~/dotfiles/.bash_aliases ~/.bash_aliases
 ln -s ~/dotfiles/.bash_profile ~/.bash_profile
 ln -s ~/dotfiles/.bash_prompt ~/.bash_prompt
 ln -s ~/dotfiles/.vimrc ~/.vimrc
+
+# Install Docker
+echo "Installing Docker"
+sudo dnf -y install dnf-plugins-core
+sudo dnf config-manager \
+    --add-repo \
+    https://download.docker.com/linux/fedora/docker-ce.repo
+sudo dnf -y install docker-ce docker-ce-cli containerd.io
+sudo usermod -aG docker $USER
+
+echo "Please Logout from X Session for docker to take effect"
