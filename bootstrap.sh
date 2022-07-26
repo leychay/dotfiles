@@ -62,6 +62,7 @@ phpbrew install 7.1.33 +default +mysql +sqlite +pdo +openssl +mbstring +xml +jso
 # phpbrew install 7.3 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json +pgsql +pdo -- --with-openssl
 phpbrew install 7.4 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json +pgsql +pdo -- --with-openssl
 phpbrew install 8.0 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json +pgsql +pdo -- --with-openssl
+phpbrew install 8.1 +default +mysql +sqlite +pdo +openssl +mbstring +xml +json +pgsql +pdo -- --with-openssl
 
 
 # Install composer
